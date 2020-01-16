@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      .app {
+        position: absolute;
+        left: 300px;
+        top: 300px;
+        padding: 20px;
+        background-color: red;
+      }
+      .tooltip {
+        background-color: #000;
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        transition: opacity 0.3s ease;
+      }
+
+      .tooltip::after {
+        content: "";
+        display: block;
+        position: absolute;
+        border-bottom: none;
+        border-top: 7px solid #000;
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        bottom: -7px;
+        left: 50%;
+        margin-left: -7px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      123
+    </div>
+    <div class="tooltip">
+      我是tooltip
+    </div>
+    <script type="text/javascript">
+      document.querySelector('.app').addEventListener('mouseenter', function (e) {
+        console.log(e);
+        document.querySelector('.tooltip').style.opacity = '1';
+        document.querySelector('.tooltip').style.left = e.target.offsetLeft + e.target.clientWidth/2 - document.querySelector('.tooltip').clientWidth/2 + 'px';
+        document.querySelector('.tooltip').style.top = e.target.offsetTop - document.querySelector('.tooltip').clientHeight - 10 + 'px';
+      })
+
+      document.querySelector('.app').addEventListener('mouseleave', function (e) {
+        console.log(e);
+        document.querySelector('.tooltip').style.opacity = '0';
+      })
+    </script>
+  </body>
+</html>

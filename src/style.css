@@ -1,0 +1,9 @@
+body .scoped-style-top {
+  background-color: yellow;
+  color: #000;
+  width: 200px;
+}
+
+body .scoped-style-top::after {
+  border-top-color: yellow;
+}

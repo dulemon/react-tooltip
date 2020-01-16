@@ -1,0 +1,16 @@
+{
+    "presets": [
+      "env",
+      "react",
+      "stage-0"
+    ],
+    "plugins": [
+      ["transform-runtime", {
+        "helpers": false, //建议为false
+        "polyfill": false, //是否开始polyfill，根据你的网站兼容性情况来看，通常我不开启，开启会增加很多额外的代码
+        "regenerator": true //必须true，否则js就废了
+      }],
+      "react-hot-loader/babel", //热更新插件
+      "transform-decorators-legacy" //修饰符语法转换插件
+    ]
+  }
